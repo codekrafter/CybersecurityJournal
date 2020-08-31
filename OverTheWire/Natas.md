@@ -62,6 +62,6 @@ The password for level 10 is `nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu`
 
 ## Level 10 - Exploiting Specific Commands
 
-Sometimes input will be partially sanitized, requiring you to exploit specific commands, like `grep`
+Sometimes input will be partially sanitized, requiring you to exploit specific commands, like `grep`. For this challenge any input containing "&", "|", ":" was declared invalid, so it was impossible to execute additional commands in the remote enviroment. This instead required using a single letter as a filter value, and passing the file that contains the next level's password to the end of the filter, thus passing it to `grep` as another file to search. If the password contained the guessed letter, than it will show up at the bottom of the found lines.
 
 The password for level 11 is `U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK`
