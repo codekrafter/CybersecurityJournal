@@ -65,3 +65,21 @@ The password for level 10 is `nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu`
 Sometimes input will be partially sanitized, requiring you to exploit specific commands, like `grep`. For this challenge any input containing "&", "|", ":" was declared invalid, so it was impossible to execute additional commands in the remote enviroment. This instead required using a single letter as a filter value, and passing the file that contains the next level's password to the end of the filter, thus passing it to `grep` as another file to search. If the password contained the guessed letter, than it will show up at the bottom of the found lines.
 
 The password for level 11 is `U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK`
+
+## Level 11 - Weak Encryption
+
+Sometimes data will be encrypted using methods that have known vulnerabilities. This can be exploited to modify sensitive application data. For this activity the application stores a background color, and a value for if the password should be shown. This is encoded in a JSON format, ran through XOR encryption and then base64 encoded. XOR encryption has a known vulnerability that can be exploited to find the key if you have the ciphertext and plaintext. This was exploited to find the key, and reencode data that enables the display of the password
+
+The password for level 12 is `EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3`
+
+## Level 12 - Remote Code Execution/Executable Disguising
+
+Someones files that contain executable code can be disgused as another type of file. This can be used to execute malicous code on a server/PC. This level features an uploader that accepts any jpg. The extension is enforced as `.jpg`, although the file that the jpg will be stored as is stored in a `<input type="hidden"/>` on the page. It defaults to random `.jpg` file, but if you change that to a `.php` extension and upload a file that contains PHP code as a `.jpg`, then you can end up with custom PHP code on the server. That code can simply echo the password file, which gives the password for the next level.
+
+The password for level 13 is `jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY`
+
+## Level 13 - Magic Bytes
+
+How applications can determine file types (most of the time) is by reading the first few bytes of the file, and check to see if they match the file type's "magic bytes". This allows for easy file type detection, but is open to exploits. In this level the uploaded file is verified to be an image by checking magic bytes. That can be bypassed by putting the magic bytes for a JPEG file before our PHP code.
+
+The password for level 14 is `Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1`
