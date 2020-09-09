@@ -83,3 +83,9 @@ The password for level 13 is `jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY`
 How applications can determine file types (most of the time) is by reading the first few bytes of the file, and check to see if they match the file type's "magic bytes". This allows for easy file type detection, but is open to exploits. In this level the uploaded file is verified to be an image by checking magic bytes. That can be bypassed by putting the magic bytes for a JPEG file before our PHP code.
 
 The password for level 14 is `Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1`
+
+## Level 14 - SQL Injection
+
+Some applications will perform database queries using user data. This level attempts to find a row inside the users table that matches the given username and password. Passing `" or ""="` for both user name and password bypasses this, faking access.
+
+The password for level 15 is `AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J`
