@@ -23,3 +23,21 @@ The password for level 3 is `Ahdiemoo1j`
 This level features an executable called `level3`. When run with `ltrace` it shows that it prompts for a password, and then compares it to "snlprintf". When I exit `ltrace` and execute it normally, I am able to pass that password in and get access to a shell which is able to print the contents of the password file.
 
 The password for level 4 is `vuH0coox6m`
+
+## Level 4 - Encoding/Hidden Files Reprise
+
+When I list the home directory I see that the only content is `.trash`, when I move into `.trash` I see a file called `bin`. When I run that it spits out some binary, which when converted to ASCII, it prints out the password.
+
+The password for level 5 is `Tith4cokei`
+
+## Level 5 - Symbolic Links
+
+This level has a binary called `leviathan5` in the home directory. When I run it it appears to just print the contents of `/tmp/file.log`. I also run `ls -l` and see that the binary is owned by `leviathan6`. When I make a symbolic link to leviathan6's password at `/tmp/file.log` and run the binary, it prints the password.
+
+The password for level 6 is `UgaoFee4li`
+
+## Level 7 - Brute Forcing
+
+Level 7 has an executable that takes a 4 digit pin as an input. Due to it only being 4 digits, I simply created a bash script to brute force it until the pin matched up. Once it succeeded it put me into a shell that allowed me to `cat` the password file into stdio.
+
+The password for level 7 is `ahy7MaeBo9`
